@@ -1,0 +1,61 @@
+
+Machine learning is a subset of artificial intelligence that enables systems to learn from data.
+There are three main types: supervised, unsupervised, and reinforcement learning.
+Supervised learning uses labeled data to train models for classification and regression tasks.
+Unsupervised learning finds patterns in unlabeled data through clustering and dimensionality reduction.
+Reinforcement learning trains agents to make decisions by rewarding desired behaviors.
+
+Neural networks are computing systems inspired by biological neural networks.
+Backpropagation is the algorithm used to train neural networks by computing gradients.
+CNNs are designed for processing grid-like data such as images using convolutional layers.
+LSTMs address the vanishing gradient problem through gating mechanisms.
+Activation functions like ReLU, sigmoid, and tanh introduce non-linearity to neural networks.
+Pooling layers reduce spatial dimensions while retaining important features.
+
+Transformers use self-attention mechanisms and process sequences in parallel.
+Word embeddings represent words as dense vectors capturing semantic meaning.
+Transfer learning involves pre-training on large corpora then fine-tuning on specific tasks.
+BERT uses bidirectional training with masked language modeling and next sentence prediction.
+Self-attention allows models to weigh the importance of different words in a sequence.
+GPT uses autoregressive training to predict the next token given previous tokens.
+
+Instruction tuning fine-tunes LLMs on instruction-following datasets.
+RLHF uses human preferences to align LLMs to be helpful, harmless, and honest.
+Chain-of-thought prompting encourages LLMs to show step-by-step reasoning.
+GPT-4 supports up to 128K tokens of context.
+
+RAG combines generative LLMs with retrieval from external knowledge bases.
+A RAG pipeline has a retriever for searching and a generator for producing answers.
+Dense retrieval uses neural embeddings and cosine similarity for relevance.
+Chunking strategy affects retrieval precision and context window utilization.
+Advanced RAG techniques include re-ranking, query expansion, HyDE, and iterative retrieval.
+
+Vector databases store and query high-dimensional vector embeddings.
+FAISS is a library for efficient similarity search with various algorithms.
+Text embeddings convert text into numerical vectors with semantic proximity.
+HNSW builds hierarchical graphs for logarithmic-complexity nearest neighbor search.
+Hybrid search combines dense vector search with sparse keyword search.
+
+LangChain is a framework for building LLM applications with chains and agents.
+LCEL is a declarative way to compose chains using the pipe operator.
+LangGraph extends LangChain for stateful multi-actor applications as directed graphs.
+LangChain supports various memory types including buffer, summary, and window memory.
+LangChain retrievers fetch relevant documents from data sources.
+
+LangSmith is a platform for debugging, testing, evaluating, and monitoring LLM applications.
+LangSmith traces capture inputs, outputs, latency, token usage, and errors.
+The LangSmith Prompt Hub stores, versions, and shares prompt templates.
+LangSmith monitors production apps with latency, error rates, and token costs.
+LangSmith datasets enable systematic evaluation of model versions.
+
+RAGAS is a framework for evaluating RAG pipelines using LLM-based metrics.
+RAGAS faithfulness checks if claims in answers can be inferred from context.
+Answer relevancy measures how well the answer addresses the original question.
+Context recall measures how well retrieved context covers needed information.
+RAGAS evaluation requires queries, answers, contexts, and optional reference answers.
+
+Guardrails AI adds validation and safety checks to LLM outputs.
+PII stands for Personally Identifiable Information and includes sensitive data.
+Structured output validation ensures LLM responses conform to expected schemas.
+Constitutional AI uses principles and self-critique to improve responses.
+AI safety concerns include hallucination, toxicity, bias, PII leakage, and jailbreaking.
