@@ -128,7 +128,7 @@ AI safety concerns include hallucination, toxicity, bias, PII leakage, and jailb
 
     text = dataset_path.read_text()
 
-    splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=100)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=200)
     chunks = splitter.split_text(text)
     print(f"Split into {len(chunks)} chunks")
 

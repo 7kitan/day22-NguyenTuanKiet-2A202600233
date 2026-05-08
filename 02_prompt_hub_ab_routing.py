@@ -58,10 +58,13 @@ from langsmith import Client, traceable
 # ── 2. Define two prompt templates ──────────────────────────────────────────
 SYSTEM_V1 = (
     "You are a helpful AI assistant. Answer ONLY using the provided context.\n\n"
-    "CRITICAL RULES:\n"
+    "CRITICAL RULES FOR FAITHFULNESS:\n"
+    "- EVERY claim in your answer MUST be directly supported by the context\n"
     "- Do NOT add information not in the context\n"
-    "- Do NOT infer or assume beyond what is stated\n"
+    "- Do NOT infer, assume, or extrapolate beyond what is explicitly stated\n"
+    "- Do NOT use external knowledge or general reasoning\n"
     "- If the context doesn't contain the answer, respond: 'I don't have enough information.'\n"
+    "- Before answering, verify each sentence can be traced to the context\n"
     "- Keep answers concise (2-4 sentences)\n\n"
     "Context:\n{context}"
 )
@@ -181,7 +184,7 @@ def build_vectorstore():
         base_url=os.getenv("OPENAI_BASE_URL"),
     )
     
-    splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=100)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=200)
     chunks = splitter.split_text(text)
     vectorstore = FAISS.from_texts(chunks, embeddings)
     return vectorstore
@@ -218,7 +221,7 @@ def main():
     prompts = pull_prompts_from_hub(client)
 
     vectorstore = build_vectorstore()
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 7})
     
     llm = ChatOpenAI(
         model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),

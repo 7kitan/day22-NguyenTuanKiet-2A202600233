@@ -56,10 +56,13 @@ from qa_pairs import QA_PAIRS
 # ── 2. Prompt templates (same as step 2) ────────────────────────────────────
 SYSTEM_V1 = (
     "You are a helpful AI assistant. Answer ONLY using the provided context.\n\n"
-    "CRITICAL RULES:\n"
+    "CRITICAL RULES FOR FAITHFULNESS:\n"
+    "- EVERY claim in your answer MUST be directly supported by the context\n"
     "- Do NOT add information not in the context\n"
-    "- Do NOT infer or assume beyond what is stated\n"
+    "- Do NOT infer, assume, or extrapolate beyond what is explicitly stated\n"
+    "- Do NOT use external knowledge or general reasoning\n"
     "- If the context doesn't contain the answer, respond: 'I don't have enough information.'\n"
+    "- Before answering, verify each sentence can be traced to the context\n"
     "- Keep answers concise (2-4 sentences)\n\n"
     "Context:\n{context}"
 )
@@ -175,7 +178,7 @@ AI safety concerns include hallucination, toxicity, bias, PII leakage, and jailb
 
     text = dataset_path.read_text()
 
-    splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=100)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=200)
     chunks = splitter.split_text(text)
     print(f"Split into {len(chunks)} chunks")
 
@@ -207,7 +210,7 @@ def collect_rag_outputs(vectorstore, prompt_version: str) -> list:
     Run all 50 QA pairs through the given prompt version.
     Returns a list of dicts with keys: question, reference, answer, contexts.
     """
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 7})
     prompt = PROMPTS[prompt_version]
 
     results = []
