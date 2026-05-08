@@ -1,8 +1,8 @@
 ============================================================
   Step 2: Prompt Hub A/B Routing
 ============================================================
-✅ Pushed V1 → https://smith.langchain.com/prompts/qa-concise-v1/03ad0c04?organizationId=b3193478-92a0-47ea-80ae-c6b26ba5fdeb
-✅ Pushed V2 → https://smith.langchain.com/prompts/qa-structured-v2/fa9b5488?organizationId=b3193478-92a0-47ea-80ae-c6b26ba5fdeb
+⚠️  V1: Conflict for /commits/-/qa-concise-v1. HTTPError('409 Client Error: Conflict for url: https://api.smith.langchain.com/commits/-/qa-concise-v1', '{"error":"Nothing to commit: prompt has not changed since latest commit"}\n')
+⚠️  V2: Conflict for /commits/-/qa-structured-v2. HTTPError('409 Client Error: Conflict for url: https://api.smith.langchain.com/commits/-/qa-structured-v2', '{"error":"Nothing to commit: prompt has not changed since latest commit"}\n')
 ↓ Pulled 'qa-concise-v1' from Hub
 ↓ Pulled 'qa-structured-v2' from Hub
 [01] [prompt-v2] What are the three main types of machine learning?...

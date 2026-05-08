@@ -276,7 +276,6 @@ def run_ragas_eval(rag_results: list, version: str) -> dict:
         llm=llm_eval,
         embeddings=emb_eval,
         batch_size=1,
-        request_timeout=60,
     )
 
     scores = {}
